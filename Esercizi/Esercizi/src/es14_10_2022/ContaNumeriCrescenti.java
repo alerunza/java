@@ -1,4 +1,4 @@
-package esercizi14_10_2022;
+package es14_10_2022;
 import java.util.Scanner;
 
 public class ContaNumeriCrescenti {
@@ -10,19 +10,20 @@ public class ContaNumeriCrescenti {
 		uguale al precedente). */
 
 		Scanner input = new Scanner(System.in);
-		int n1, n2 = 0, i = 0;
+		int n1, n2 = 0, temp, i = 0;
 		
 		do {			
 			System.out.println("Inserisci il prossimo numero: ");
 			n1 = input.nextInt();
-			System.out.println(n1 + " " + n2);
-			n2 = n1;
 			
-		} while(n1<=n2);
+			temp = n1;
+			n1 = n2;
+			n2 = temp;
+			
+			i++;
+		} while((n1<=temp) || (n1<=0) && (n1>=0));
 		
-		
-		
-		System.out.println("Hai immesso una sequenza di numeri crescenti lunga: " + (i+1));
+		System.out.println("Hai immesso una sequenza di numeri crescenti lunga: " + (i-1));
 		
 	}
 

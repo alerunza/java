@@ -1,4 +1,4 @@
-package esercizi14_10_2022;
+package es14_10_2022;
 import java.util.Scanner;
 
 public class MediaNumeri {

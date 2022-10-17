@@ -1,4 +1,4 @@
-package esercizi14_10_2022;
+package es14_10_2022;
 import java.util.Scanner;
 
 public class Asterischi {
@@ -17,9 +17,13 @@ public class Asterischi {
 			System.out.println("Si è verificato un errore");
 		}
 		
-		for(int i = 0; i<=n; i++) {
-			
+		int i;
+		
+		for(i = 1; i<=n; i++) {
+			for(int j = 0; j<i; j++) {
+				System.out.print("*");
+			}
+			System.out.println("");
 		}
 	}
-
 }

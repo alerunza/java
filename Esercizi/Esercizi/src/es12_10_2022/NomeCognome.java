@@ -1,4 +1,4 @@
-package esercizi;
+package es12_10_2022;
 import java.util.Scanner;
 
 public class NomeCognome {
