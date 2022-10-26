@@ -13,7 +13,8 @@ public class Calcolatrice {
 		System.out.println("Quale operazione matematica vuoi svolgere?");
 		System.out.println("1) Somma\n2) Sottrazione\n3) Moltiplicazione\n4) Divisione (intera)");
 		int scelta = input.nextInt();
-
+		
+		
 		switch(scelta) {
 		case 1:
 			System.out.println("Somma: " + (x + y));
@@ -27,6 +28,8 @@ public class Calcolatrice {
 		case 4:
 			System.out.println("Divisione: \nQuoziente: " + (x / y) + "\nResto: " + (x % y));
 			break;
+		default:
+			System.out.println("Inserisci un numero equivalente a: 1-2-3-4");
 		}
 	}
 
