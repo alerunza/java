@@ -30,6 +30,7 @@ public class Calcolatrice {
 			break;
 		default:
 			System.out.println("Inserisci un numero equivalente a: 1-2-3-4");
+			break;
 		}
 	}
 
