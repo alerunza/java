@@ -1,5 +1,4 @@
 package es4_11_2022;
-import java.util.*;
 
 public class Genera {
 
