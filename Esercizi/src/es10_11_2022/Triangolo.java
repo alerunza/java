@@ -27,28 +27,28 @@ public class Triangolo {
 	}
 	
 	// equilatero
-	public void PerimetroE(double lato1) {
+	public void PerimetroE() {
 		double perimetro = 0;
 		
-		perimetro = 3 * lato1;
+		perimetro = 3 * this.a;
 		
 		System.out.println(perimetro);
 	}
 	
 	// scaleno
-	public void PerimetroS(double lato1, double lato2, double lato3) {
+	public void PerimetroS() {
 		double perimetro = 0;
 		
-		perimetro = lato1 + lato2 + lato3;
+		perimetro = this.a + this.b + this.c;
 		
 		System.out.println(perimetro);
 	}
 	
 	// isoscele
-	public void PerimetroI(double lato1, double lato2) {
+	public void PerimetroI() {
 		double perimetro = 0;
 		
-		perimetro = lato1 + lato2 * 2;
+		perimetro = this.a + this.b * 2;
 		
 		System.out.println(perimetro);
 	}

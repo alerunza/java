@@ -1,7 +1,7 @@
 package es10_11_2022;
 import java.util.Scanner;
 
-public class Main {
+public class MainCirconferenza {
 
 	public static void main(String[] args) {
 		Scanner input = new Scanner(System.in);
@@ -13,7 +13,8 @@ public class Main {
 		
 		Circonferenza cerchio = new Circonferenza(raggio);
 		
-		cerchio.AreaR(raggio);
+		cerchio.AreaR();
+		cerchio.PerimetroR();
 
 	}
 

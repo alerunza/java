@@ -1,7 +1,7 @@
 package es10_11_2022;
 import java.util.Scanner;
 
-public class esercitazione {
+public class MainTriangolo {
 
 	public static void main(String[] args) {
 		Scanner input = new Scanner (System.in);
@@ -16,7 +16,7 @@ public class esercitazione {
 				System.out.println("Inserisci il lato del TRIANGOLO Equilatero");
 				l1 = input.nextDouble();
 				Triangolo tr1 = new Triangolo(l1);
-				tr1.PerimetroE(l1);
+				tr1.PerimetroE();
 			}
 			if(scelta==2) {
 				System.out.println("Inserisci i 3 lati del TRIANGOLO Scaleno");
@@ -24,18 +24,45 @@ public class esercitazione {
 				l2 = input.nextDouble();
 				l3 = input.nextDouble();
 				Triangolo tr1 = new Triangolo(l1, l2, l3);
-				tr1.PerimetroS(l1, l2, l3);
+				tr1.PerimetroS();
 			}
 			if(scelta==3) {
 				System.out.println("Inserisci i 2 lati del TRIANGOLO Isoscele");
 				l1 = input.nextDouble();
 				l2 = input.nextDouble();
 				Triangolo tr1 = new Triangolo(l1, l2);
-				tr1.PerimetroI(l1, l2);
+				tr1.PerimetroI();
 			}
 		} else {
 			System.out.println("Inserisci un numero compreso tra 1 e 3");
 		}
+		
+//		switch(scelta) {
+//		case 1:
+//			System.out.println("Inserisci il lato del TRIANGOLO Equilatero");
+//			l1 = input.nextDouble();
+//			Triangolo tr1 = new Triangolo(l1);
+//			tr1.PerimetroE();
+//			break;
+//		case 2:
+//			System.out.println("Inserisci i 3 lati del TRIANGOLO Scaleno");
+//			l1 = input.nextDouble();
+//			l2 = input.nextDouble();
+//			l3 = input.nextDouble();
+//			Triangolo tr1 = new Triangolo(l1, l2, l3);
+//			tr1.PerimetroS();
+//			break;
+//		case 3:
+//			System.out.println("Inserisci i 2 lati del TRIANGOLO Isoscele");
+//			l1 = input.nextDouble();
+//			l2 = input.nextDouble();
+//			Triangolo tr1 = new Triangolo(l1, l2);
+//			tr1.PerimetroI();
+//			break;
+//		default:
+//			System.out.println("Inserisci un numero compreso tra 1 e 3");
+//			break;
+//		}
 	}
 
 }
