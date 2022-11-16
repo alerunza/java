@@ -14,7 +14,7 @@ public class MainAnagrafica {
 		System.out.println("Inserisci COGNOME");
 		cognome = input.next();
 		
-		System.out.println("Inserisci la tua EMAIL (Ricorda di inserire @dominio.com) altrimenti non verrà registrata");
+		System.out.println("Inserisci la tua EMAIL (Ricorda di inserire @dominio.com) altrimenti non verra' registrata");
 		email = input.next();
 		
 		System.out.println();
