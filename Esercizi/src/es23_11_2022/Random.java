@@ -1,13 +1,15 @@
 package es23_11_2022;
 
 public class Random {
-	private double rand = 0;
-	
-	public Random (double rand) {
-		this.rand = rand;
+	public Random () {
+
 	}
 	
-	public void Genera () {
+	public int Genera () {
+		int rand = 0;
 		
+		rand = (int) (Math.random()*6+1);
+		
+		return rand;
 	}
 }
