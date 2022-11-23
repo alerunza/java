@@ -26,12 +26,8 @@ public class Frazione {
 		if(numeratore!=denominatore) {
 			if(numeratore>denominatore) {
 				MCD = numeratore - denominatore;
-				
-				System.out.println("L'MCD e' pari a " + MCD);
 			} else {
 				MCD = denominatore - numeratore;
-				
-				System.out.println("L'MCD e' pari a " + MCD);
 			}
 		}
 	}
@@ -45,5 +41,17 @@ public class Frazione {
 	
 	public void Mostra() {
 		System.out.println("Mostra: \n" + numeratore + "\n----\n" + denominatore);
+	}
+
+	public double getMCD() {
+		return MCD;
+	}
+
+	public void setNumeratore(double numeratore) {
+		this.numeratore = numeratore;
+	}
+
+	public void setDenominatore(double denominatore) {
+		this.denominatore = denominatore;
 	}
 }

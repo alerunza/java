@@ -18,6 +18,7 @@ public class MainFrazione {
 		
 		fratto.CalcolaMCD();
 		
+		System.out.println("L'MCD e' pari a " + fratto.getMCD());
 		System.out.println();
 		
 		fratto.Mostra();
