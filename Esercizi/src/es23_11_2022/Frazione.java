@@ -1,7 +1,7 @@
 package es23_11_2022;
 
 public class Frazione {
-	private double numeratore, denominatore;
+	private double numeratore, denominatore, r;
 	public double MCD = 0;
 	
 	public Frazione(double numeratore, double denominatore) {
@@ -25,9 +25,17 @@ public class Frazione {
 		
 		if(numeratore!=denominatore) {
 			if(numeratore>denominatore) {
-				MCD = numeratore - denominatore;
+				r = numeratore % denominatore;
+				
+				while (r != 0) {
+					numeratore = denominatore;
+					denominatore = r;
+					r = numeratore % denominatore;
+				}
+				
+				MCD = denominatore;
 			} else {
-				MCD = denominatore - numeratore;
+				MCD = numeratore;
 			}
 		}
 	}
