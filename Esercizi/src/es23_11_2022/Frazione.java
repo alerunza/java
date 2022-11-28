@@ -24,7 +24,7 @@ public class Frazione {
 		}
 		
 		if(numeratore!=denominatore) {
-			if(numeratore>denominatore) {
+			if(denominatore!=0) {
 				r = numeratore % denominatore;
 				
 				while (r != 0) {
@@ -32,7 +32,6 @@ public class Frazione {
 					denominatore = r;
 					r = numeratore % denominatore;
 				}
-				
 				MCD = denominatore;
 			} else {
 				MCD = numeratore;
