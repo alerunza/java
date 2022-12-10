@@ -1,4 +1,4 @@
-package es12_10_2022;
+package ottobre.es12_10_2022;
 import java.util.Scanner;
 
 public class SommaProdotto {

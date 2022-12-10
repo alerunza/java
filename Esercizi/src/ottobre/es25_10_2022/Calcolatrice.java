@@ -1,4 +1,4 @@
-package es25_10_2022;
+package ottobre.es25_10_2022;
 import java.util.Scanner;
 
 public class Calcolatrice {

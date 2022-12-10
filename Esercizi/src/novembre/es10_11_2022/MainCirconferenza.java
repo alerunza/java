@@ -1,4 +1,4 @@
-package es10_11_2022;
+package novembre.es10_11_2022;
 import java.util.Scanner;
 
 public class MainCirconferenza {

@@ -1,4 +1,4 @@
-package es22_11_2022;
+package novembre.es22_11_2022;
 import java.lang.Math;
 
 public class Punto {

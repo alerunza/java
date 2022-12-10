@@ -1,4 +1,4 @@
-package es16_11_2022;
+package novembre.es16_11_2022;
 
 public class Anagrafica {
 	public String nome, cognome;

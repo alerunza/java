@@ -1,4 +1,4 @@
-package es16_11_2022;
+package novembre.es16_11_2022;
 import java.util.Scanner;
 
 public class MainAnagrafica {

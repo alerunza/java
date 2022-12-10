@@ -1,4 +1,4 @@
-package es11_11_2022;
+package novembre.es11_11_2022;
 
 public class Punto {
 	private double x, y;

@@ -1,4 +1,4 @@
-package es14_10_2022;
+package ottobre.es14_10_2022;
 import java.util.Scanner;
 
 public class Maggiore3Valori {

@@ -1,4 +1,4 @@
-package es23_11_2022;
+package novembre.es23_11_2022;
 
 public class Conto {
 	private double soldi;
