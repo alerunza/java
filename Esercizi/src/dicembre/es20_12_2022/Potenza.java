@@ -18,4 +18,9 @@ public class Potenza {
 	public void cambiabase(int n) {
 		this.n = n;
 	}
+
+	public int getN() {
+		return n;
+	}
+	
 }
