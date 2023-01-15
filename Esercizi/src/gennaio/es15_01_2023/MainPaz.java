@@ -22,7 +22,7 @@ public class MainPaz {
 //		pazienti.listPaz();
 //		pazienti.stampaPaz("Stefano");
 		
-		System.out.println("Benvenuto nello studio Medico - Runza \nInserisci i tuoi dati: Nome & Cognome");
+		System.out.println("Benvenuto nello studio Medico - Runza \nInserisci i dati di un paziente da inserire nella lista d'attesa: Nome & Cognome");
 		
 		String nome = input.next();
 		String cognome = input.next();
@@ -39,7 +39,6 @@ public class MainPaz {
 		
 		System.out.println("\nLista Pazienti Aggiornata\n");
 		pazienti.listPaz();
-		
 	}
 
 }
