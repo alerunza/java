@@ -13,6 +13,9 @@ public class Paz {
 	}
 	
 	public void insPaz(String nompaz) {
+	  if (this.n == 20) {
+	   System.out.println("Limite di paziente raggiunto");
+	  }
 		this.pazienti[this.n] = nompaz;
 		this.n++;
 	}
