@@ -3,6 +3,10 @@ package febbraio.es02_02_2023;
 public class Quadrilatero {
 	public double AB, BC, CD, DA;
 	
+    public Quadrilatero() {
+    	AB = BC = CD = DA = 0;
+    }
+	
 	public Quadrilatero(double A, double B, double C, double D) {
 		this.AB = A;
 		this.BC = B;
