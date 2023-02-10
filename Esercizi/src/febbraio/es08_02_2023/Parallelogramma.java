@@ -17,11 +17,17 @@ public class Parallelogramma {
 	public void calcola() {
 		h = this.dMaggiore * Math.sin(this.angolo);
 		
-		e = Math.asin(h/this.dMinore);
+		e = Math.asin(Math.toRadians(h/this.dMinore));
 		
-		t = Math.sqrt(Math.pow(this.dMaggiore/2, 2) - Math.pow(h, 2));
+		double test = 0, test2 = 0, test3 = 0;
+		test = Math.pow(h, 2);
+		test2 = Math.pow(this.dMaggiore/2, 2);
+		test3 = test2 - test;
+		t = Math.sqrt(test3);
+		
 		
 		v = (this.dMinore/2) * Math.cos(e);
+		System.out.println(v + " " + test3);
 		
 		base = v + t;
 		
@@ -41,4 +47,5 @@ public class Parallelogramma {
 		
 		System.out.println("Il Perimetro del Parallelogramma e': " + perimetro);
 	}
+	
 }
