@@ -2,7 +2,7 @@ package febbraio.es15_02_2023;
 
 public class PolizzaBase {
 	public String veicolo, targa = "null";
-	public int assicurato = 0;
+	public double assicurato = 0;
 
 	public PolizzaBase(String veh, String plate, int valore) {
 		this.veicolo = veh;
@@ -18,7 +18,7 @@ public class PolizzaBase {
 		return this.targa;
 	}
 	
-	public int getAssicurato() {
+	public double getAssicurato() {
 		return this.assicurato/100;
 	}
 	
