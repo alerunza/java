@@ -18,18 +18,18 @@ public class MainPolizza {
 		
 		PolizzaBase polizza = new PolizzaBase(veh, targa, valore);
 		
-		System.out.println("Modello: " + polizza.getVeicolo() + "Targa: " + polizza.getTarga() + "Valore Assicurativo: " + polizza.getAssicurato());
+		System.out.println("Modello: " + polizza.getVeicolo() + "\nTarga: " + polizza.getTarga() + "\nValore Assicurativo: " + polizza.getAssicurato());
 		
-		System.out.println("Vuoi inserire la Polizza Incendio e Furti? (yes/no)");
+		System.out.println("\nVuoi inserire la Polizza Incendio e Furti? (yes/no)");
 		String scelta = input.next();
 		
-		if(scelta.toLowerCase().contains("yes") || scelta.toLowerCase().contains("no")) {
-			System.out.println("Inserisci il valore della polizza Incendio & Furti");
+		if(scelta.toLowerCase().contains("yes")) {
+			System.out.println("\nInserisci il valore della polizza Incendio & Furti");
 			int valfuoco = input.nextInt();
 			PolizzaIncendioFurto furtoincendio = new PolizzaIncendioFurto(veh, targa, valore, valfuoco);
 			
-			System.out.println("Premio Annuale" + furtoincendio.PremioAnnuale());
-		}else {
+			System.out.println("Premio Annuale: " + furtoincendio.PremioAnnuale());
+		}else if(scelta.toLowerCase().contains("no")){
 			System.out.println("Arrivederci");
 		}
 	}
