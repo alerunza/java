@@ -2,7 +2,7 @@ package gennaio.es31_01_2023;
 
 public class Insegnante extends Persona {
 	public int nClassi = 0;
-	private String[] classi = new String[nClassi];;
+	private String[] classi = new String[nClassi];
 	
 	public Insegnante(String nome, String cognome, int nClassi, String[] classi) {
 		super(nome, cognome);
