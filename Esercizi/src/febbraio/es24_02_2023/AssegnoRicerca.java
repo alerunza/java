@@ -22,7 +22,7 @@ public class AssegnoRicerca extends BorsaStudio{
 	}
 	
 	public boolean checkDep(String dep) {
-		if(!(this.dipartimento == dep)) {
+		if(!(this.dipartimento.contains(dep))) {
 			return false;
 		} else {
 			return true;
