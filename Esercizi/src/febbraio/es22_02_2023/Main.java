@@ -1,5 +1,7 @@
 package febbraio.es22_02_2023;
 
+import java.util.Scanner;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -11,10 +13,17 @@ public class Main {
 		
 		int nPass = 4;
         String[] passeggeri =  new String[nPass];
-        passeggeri = new String[] {"Ale", "Mich", "Gero"};
+        //passeggeri = new String[] {"Ale", "Mich", "Gero"};
+        for(int i = 0; i < nPass; i++) {
+        	passeggeri[i] = "";
+        }
         
+        Scanner input = new Scanner(System.in);
+        
+        System.out.println("Inserisci il numro di Passeggeri da inserire");
+        for(int i = 0; i < numIns)
 		Volo volo = new Volo("Catania", "Milano", nPass, passeggeri);
-		volo.addPass("Ciao");
+		//volo.addPass("Ciao");
 		volo.getElencoPass();
 	}
 

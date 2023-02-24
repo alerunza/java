@@ -30,7 +30,7 @@ public class Volo {
 	}
 	
 	public void getElencoPass() {
-		for(int i = 0; i < this.maxPass; i++) {
+		for(int i = 0; i < 4; i++) {
 			System.out.println(passeggeri[i]);
 		}
 	}
