@@ -2,10 +2,10 @@ package marzo.es02_03_2023;
 
 public class Studente extends Persona {
 private String Matricola, Università;
-	public Studente(String codfis, String nome, String cognome,String m, String u) {
+	public Studente(String codfis, String nome, String cognome,String u, String m) {
 		super(codfis, nome, cognome);
-		this.setMatricola(m.toUpperCase());
 		this.setUniversità(u.toLowerCase());
+		this.setMatricola(m.toUpperCase());
 	}
 
 	public String getMatricola() {
