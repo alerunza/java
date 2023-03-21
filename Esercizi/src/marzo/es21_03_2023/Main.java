@@ -4,14 +4,12 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        double a, b;
+        Rettangolo rett = new Rettangolo(3, 2);
 
-        System.out.println("Inserisci due numeri");
+        System.out.println("Rettangolo: " + rett.getArea());
 
-        a = input.nextDouble();
-        b = input.nextDouble();
+        Parallelepipedo par = new Parallelepipedo(3, 2, 5);
 
-        System.out.println("Risultato: " + (a + b));
+        System.out.println("Parallelepipedo: " + par.getVolume());
     }
 }
