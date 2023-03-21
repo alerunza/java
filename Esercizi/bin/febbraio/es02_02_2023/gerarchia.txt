@@ -1,2 +1,0 @@
-Superclasse: Quadrilatero
-Gerarchia sotto per ordine: Trapezio -> Parallelogramma -> Rettangolo -> Quadrato

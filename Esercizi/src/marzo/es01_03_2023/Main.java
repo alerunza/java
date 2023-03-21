@@ -16,7 +16,7 @@ public class Main {
 		Rettangolo Rett = new Rettangolo (base, altezza);
 		System.out.println("L'area del rettangolo : " + Rett.getArea());
 		
-		System.out.println("Inserisci la largezza del parallelepipedo ");
+		System.out.println("Inserisci la larghezza del parallelepipedo ");
 		double larghezza = input.nextDouble();
 		
 		Parallelepipedo Parallele = new Parallelepipedo(base, altezza, larghezza);
