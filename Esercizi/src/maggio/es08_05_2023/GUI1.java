@@ -12,6 +12,7 @@ public class GUI1 {
         frame.setLocation(100, 100);
 
         JPanel panel = new JPanel(new GridLayout(6, 2));
+        panel.setBackground(Color.RED);
 
         JLabel lab = new JLabel("Nome");
         JLabel lab2 = new JLabel("Cognome");
