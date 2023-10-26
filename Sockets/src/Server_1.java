@@ -27,13 +27,16 @@ public class Server_1 {
 
             //comunico
 
-            String stringa="";
+            String stringa = "";
+            int numStringhe = 0;
+            numStringhe = ins.readInt();
             //leggo la stringa inviata dal client
-            stringa = ins.readUTF();
-            System.out.println("Ho ricevuto la stringa: "+stringa);
-
-            //invio una stringa al client
-            outs.writeUTF(stringa.toUpperCase());
+            for(int i = 0; i < numStringhe; i++){
+                stringa = ins.readUTF();
+                System.out.println("Ho ricevuto la stringa: " + stringa);
+                //invio una stringa al client
+                outs.writeUTF(stringa.toUpperCase());
+            }
 
             //fine comunicazione - chiudo la connessione
             System.out.println("Chiudo la connessione...Ciao ciao");

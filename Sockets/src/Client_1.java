@@ -17,6 +17,7 @@ public class Client_1 {
     public void connetti() {
         try {
             client = new Socket("localhost", 9999);
+            //client = new Socket("192.168.71.218", 9999);
 
             paperina = new DataInputStream(client.getInputStream());
             topolino = new DataOutputStream(client.getOutputStream());
@@ -41,15 +42,20 @@ public class Client_1 {
         Scanner tastiera = new Scanner(System.in);
         try {
 
-
-            System.out.println("Inserisci una stringa: ");
-            String str= tastiera.nextLine();
-            //invio una stringa
-            topolino.writeUTF(str);
-
-            //leggo una stringa
-            String strIn = this.paperina.readUTF();
-            System.out.println("Ho ricevuto: "+strIn);
+            System.out.println("Inserisci quante stringhe vuoi inserire");
+            int numerostrighe = 0;
+            numerostrighe = tastiera.nextInt();
+            topolino.writeInt(numerostrighe);
+            tastiera.nextLine();
+            System.out.println("Inserisci più stringa: ");
+            for(int i = 0 ; i < numerostrighe ; i++ ) {
+                System.out.println("Stringa n." + i);
+                String str = tastiera.nextLine();
+                topolino.writeUTF(str);
+                //leggo una stringa
+                String strIn = this.paperina.readUTF();
+                System.out.println("Ho ricevuto: "+strIn);
+            }
             System.out.println("Passo e chiudo");
             client.close();
         } catch (IOException e) {
