@@ -1,3 +1,5 @@
+package es1;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -7,7 +9,7 @@ import java.util.Scanner;
 
 
 
-public class Client_1 {
+public class Client {
     Socket client;
 
     DataInputStream paperina;
@@ -47,7 +49,7 @@ public class Client_1 {
             numerostrighe = tastiera.nextInt();
             topolino.writeInt(numerostrighe);
             tastiera.nextLine();
-            System.out.println("Inserisci più stringa: ");
+            System.out.println("Inserisci più stringhe: ");
             for(int i = 0 ; i < numerostrighe ; i++ ) {
                 System.out.println("Stringa n." + i);
                 String str = tastiera.nextLine();
@@ -66,7 +68,7 @@ public class Client_1 {
     public static void main(String[] args) {
         // TODO Auto-generated method stub
 
-        Client_1 client = new Client_1();
+        Client client = new Client();
         client.connetti();
         client.comunica();
 
