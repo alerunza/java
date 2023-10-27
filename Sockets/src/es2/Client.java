@@ -48,7 +48,7 @@ public class Client {
             int numTot = 0;
             numTot = tastiera.nextInt();
             topolino.writeInt(numTot);
-            tastiera.nextInt();
+            //tastiera.nextInt();
             System.out.println("Inserisci più di un NUMERO:");
             for(int i = 0 ; i < numTot ; i++ ) {
                 System.out.println("Numero n." + i);
