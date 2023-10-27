@@ -26,7 +26,7 @@ public class Server {
 
             //comunico
 
-            int randomNum = (int) (Math.random() * 11);
+            int randomNum = (int) (Math.random() * 51);
             System.out.println("NUMERO Generato: " + randomNum);
             outs.writeInt(randomNum);
             for(int i = randomNum; i > 0; i--){
