@@ -3,29 +3,40 @@ package Chat;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MultiServer {
- 
+	static List<ServerThread> clientThreads = new ArrayList<>();
+
 	public void avviaServer() {
 		try {
 			ServerSocket server = new ServerSocket(9999);
-			for(;;) {
+			for (;;) {
 				System.out.println("Server in attesa...");
 				Socket socket = server.accept();
-				System.out.println("Server socket  " + socket); 
-		        ServerThread serverThread = new ServerThread(socket);
-		        serverThread.start(); 
+				System.out.println("Server socket: " + socket);
+				ServerThread serverThread = new ServerThread(socket);
+				addClientThread(serverThread);
+				serverThread.start();
 			}
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			System.out.println(e.getMessage());
-		    System.out.println("Errore durante l'istanza del server !");
-		    System.exit(1);
+			System.out.println("Errore durante l'istanza del server!");
+			System.exit(1);
 		}
 	}
-	
-	 public static void main (String[] args){ 
-	     MultiServer multiServer = new MultiServer(); 
-	     multiServer.avviaServer(); 
-	   } 
+
+	public static void removeClientThread(ServerThread clientThread) {
+		clientThreads.remove(clientThread);
+	}
+
+	public static void addClientThread(ServerThread clientThread) {
+		clientThreads.add(clientThread);
+	}
+
+	public static void main(String[] args) {
+		MultiServer multiServer = new MultiServer();
+		multiServer.avviaServer();
+	}
 }

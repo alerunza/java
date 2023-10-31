@@ -6,50 +6,62 @@ import java.io.IOException;
 import java.net.Socket;
 
 public class ServerThread extends Thread {
-	
-	Socket client;
-	DataInputStream ins;
-	DataOutputStream outs;
-	
+	private Socket client;
+	private DataInputStream ins;
+	private DataOutputStream outs;
 
-	public ServerThread (Socket socket){ 
-		    this.client = socket; 
-		  } 
-	
-	public void run(){ 
-		  try{
-		    comunica();  
-		  }catch (Exception e){ 
-		    e.printStackTrace(System.out);  } 
-		  } 
-	
-	public void comunica() {
-		
+	public ServerThread(Socket socket) {
+		this.client = socket;
+	}
+
+	public void run() {
 		try {
-			ins = new DataInputStream (client.getInputStream());
+			MultiServer.addClientThread(this);
+			comunica();
+		} catch (Exception e) {
+			e.printStackTrace(System.out);
+		} finally {
+			MultiServer.removeClientThread(this);
+		}
+	}
+
+
+	public void comunica() {
+		try {
+			ins = new DataInputStream(client.getInputStream());
 			outs = new DataOutputStream(client.getOutputStream());
-			
-		
-			String stringa="";
+
+			String messaggio = "", username = "";
+			username = ins.readUTF();
 			boolean stop = false;
-			while(!stop) {
-				stringa = ins.readUTF();
-				if(stringa.equals("fine")) {
-					stop=true;
-				}else {
-					System.out.println("Ho ricevuto la stringa: "+stringa);
-					outs.writeUTF(stringa.toUpperCase());
+			while (!stop) {
+				messaggio = ins.readUTF();
+				if (messaggio.equals("exit")) {
+					stop = true;
+				} else {
+					System.out.println("SERVER | " + username + ": " + messaggio);
+					mandaMess(messaggio, username);
 				}
 			}
-			//fine comunicazione - chiudo la connessione
+
 			System.out.println("Chiudo la connessione con " + client);
 			ins.close();
 			outs.close();
 			client.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
+	private void mandaMess(String message, String username) {
+		for (ServerThread clientThread : MultiServer.clientThreads) {
+			if (clientThread != this) {
+				try {
+					clientThread.outs.writeUTF(username + ": " + message);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
 }
