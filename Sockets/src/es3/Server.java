@@ -29,13 +29,23 @@ public class Server {
             int randomNum = (int) (Math.random() * 51);
             System.out.println("NUMERO Generato: " + randomNum);
             outs.writeInt(randomNum);
-            for(int i = randomNum; i > 0; i--){
-                int numCl = ins.readInt();
-                System.out.println("SERVER | num: " + numCl);
-                if(numCl <= 0){
+            for (int i = randomNum; i > 0; i--) {
+                try {
+                    int numCl = ins.readInt();
+                    System.out.println("SERVER | num: " + numCl);
+                    if (numCl == 1) {
+                        System.out.println("Bomba scoppiata nel Client! Ti Sei Salvato!");
+                        break;
+                    }
+                    if (numCl <= 0) {
+                        System.out.println("E' Scoppiata la bomba!!!");
+                        break;
+                    }
+                    outs.writeInt(numCl - 1);
+                } catch (IOException e) {
+                    System.out.println("Connessione chiusa dal client.");
                     break;
                 }
-                outs.writeInt(numCl-1);
             }
 
             //fine comunicazione - chiudo la connessione
@@ -45,7 +55,6 @@ public class Server {
             client.close();
 
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
