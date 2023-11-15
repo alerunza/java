@@ -23,27 +23,22 @@ public class Server {
 
             //comunico
             int num1 = 0, num2 = 0, operazione = 0;
-            String strRicevuta = "", strRicevuta2 = "";
-            while (!strRicevuta.equals("no")) {
-                strRicevuta2 = ins.readUTF();
-                System.out.println("strRicevuta2: " + strRicevuta2);
-                if (strRicevuta2.equals("q")) {
-                    num1 = ins.readInt();
-                    operazione = num1 * num1;
-                    System.out.println("Area Quadrato: " + num1 + " * " + num1 + " = " + operazione);
-                    outs.writeInt(operazione);
-                }
-                if (strRicevuta2.equals("r")) {
-                    num1 = ins.readInt();
-                    num2 = ins.readInt();
-                    operazione = num1 * num2;
-                    System.out.println("Area Rettangolo: " + num1 + " * " + num2 + " = " + operazione);
-                    outs.writeInt(operazione);
-                }
-                strRicevuta = ins.readUTF();
-                System.out.println("Comando ricevuto: " + strRicevuta);
+            String strRicevuta = "";
+            strRicevuta = ins.readUTF();
+            System.out.println("Comando Ricevuto: " + strRicevuta);
+            if (strRicevuta.equals("q")) {
+                num1 = ins.readInt();
+                operazione = num1 * num1;
+                System.out.println("Area Quadrato: " + num1 + " * " + num1 + " = " + operazione);
+                outs.writeInt(operazione);
             }
-
+            if (strRicevuta.equals("r")) {
+                num1 = ins.readInt();
+                num2 = ins.readInt();
+                operazione = num1 * num2;
+                System.out.println("Area Rettangolo: " + num1 + " * " + num2 + " = " + operazione);
+                outs.writeInt(operazione);
+            }
 
             //fine comunicazione - chiudo la connessione
             System.out.println("Chiudo la connessione... Ciao ciao");
