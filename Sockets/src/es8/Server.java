@@ -18,7 +18,84 @@ public class Server {
             DataInputStream inp = new DataInputStream(client.getInputStream());
             DataOutputStream out = new DataOutputStream(client.getOutputStream());
 
-            System.out.println("Server - " + inp.readUTF());
+            String sceltaClient = "";
+            sceltaClient = inp.readUTF();
+            System.out.println("Server: " + sceltaClient);
+
+
+            int taglioClient = 0;
+
+            switch (sceltaClient){
+                case "TIM":
+                    do{
+                        // invio al client delle tariffe
+                        out.writeInt(5);
+                        out.writeInt(10);
+                        out.writeInt(20);
+
+                        taglioClient = inp.readInt();
+                        if(taglioClient == 5){
+                            System.out.println("Taglio confermato: " + taglioClient);
+                            out.writeBoolean(true);
+                        } else if(taglioClient == 10){
+                            System.out.println("Taglio confermato: " + taglioClient);
+                            out.writeBoolean(true);
+                        } else if(taglioClient == 20){
+                            System.out.println("Taglio confermato: " + taglioClient);
+                            out.writeBoolean(true);
+                        } else{
+                            System.out.println("Taglio errato: " + taglioClient);
+                            out.writeBoolean(false);
+                        }
+                    }while (taglioClient != 5 && taglioClient != 10 && taglioClient != 20);
+                    break;
+                case "VODAFONE":
+                    do{
+                        // invio al client delle tariffe
+                        out.writeInt(10);
+                        out.writeInt(20);
+                        out.writeInt(30);
+
+                        taglioClient = inp.readInt();
+                        if(taglioClient == 10){
+                            System.out.println("Taglio confermato: " + taglioClient);
+                            out.writeBoolean(true);
+                        } else if(taglioClient == 20){
+                            System.out.println("Taglio confermato: " + taglioClient);
+                            out.writeBoolean(true);
+                        } else if(taglioClient == 30){
+                            System.out.println("Taglio confermato: " + taglioClient);
+                            out.writeBoolean(true);
+                        } else{
+                            System.out.println("Taglio errato: " + taglioClient);
+                            out.writeBoolean(false);
+                        }
+                    }while (taglioClient != 10 && taglioClient != 20 && taglioClient != 30);
+                    break;
+                case "WIND":
+                    do{
+                        // invio al client delle tariffe
+                        out.writeInt(5);
+                        out.writeInt(15);
+                        out.writeInt(25);
+
+                        taglioClient = inp.readInt();
+                        if(taglioClient == 5){
+                            System.out.println("Taglio confermato: " + taglioClient);
+                            out.writeBoolean(true);
+                        } else if(taglioClient == 15){
+                            System.out.println("Taglio confermato: " + taglioClient);
+                            out.writeBoolean(true);
+                        } else if(taglioClient == 25){
+                            System.out.println("Taglio confermato: " + taglioClient);
+                            out.writeBoolean(true);
+                        } else{
+                            System.out.println("Taglio errato: " + taglioClient);
+                            out.writeBoolean(false);
+                        }
+                    }while (taglioClient != 5 && taglioClient != 15 && taglioClient != 25);
+                    break;
+            }
 
             inp.close();
             out.close();

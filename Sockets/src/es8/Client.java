@@ -43,6 +43,28 @@ public class Client {
                 }
             }while(!scelta.equals("TIM") && !scelta.equals("VODAFONE") && !scelta.equals("WIND"));
 
+            int sceltaTaglio = 0;
+            boolean verificaDalServer = false;
+            switch (scelta){
+                case "TIM", "VODAFONE", "WIND":
+                    do{
+                        int tariffa1 = inp.readInt();
+                        int tariffa2 = inp.readInt();
+                        int tariffa3 = inp.readInt();
+                        System.out.println("Tagli di Ricarica " + scelta + ": " + tariffa1 + ", " + tariffa2 + " e " + tariffa3 + " euro\nScegli il taglio:");
+                        sceltaTaglio = input.nextInt();
+
+                        out.writeInt(sceltaTaglio);
+                        verificaDalServer = inp.readBoolean();
+                        if(!verificaDalServer){
+                            System.out.println("Taglio ERRATO, riprova");
+                        } else{
+                            System.out.println("Ricarica avvenuta con successo!\nHai effettuato una ricarica di: " + sceltaTaglio + " euro, con il Gestore: " + scelta);
+                        }
+                    }while (!verificaDalServer);
+                    break;
+            }
+
             client.close();
         } catch (Exception e) {
             throw new RuntimeException(e);
