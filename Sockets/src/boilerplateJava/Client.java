@@ -31,6 +31,7 @@ public class Client {
         try {
             int num = 3;
             out.writeInt(num);
+            client.close();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

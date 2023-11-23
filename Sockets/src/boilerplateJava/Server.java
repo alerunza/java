@@ -19,6 +19,10 @@ public class Server {
             DataOutputStream out = new DataOutputStream(client.getOutputStream());
 
             System.out.println("Server - " + inp.readInt());
+
+            inp.close();
+            out.close();
+            client.close();
         } catch (IOException e){
             e.printStackTrace();
         }
