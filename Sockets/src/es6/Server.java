@@ -20,23 +20,27 @@ public class Server {
 
 
             int sceltaClient = 0, num1 = 0, num2 = 0, somma = 0, quadrato = 0;
-            sceltaClient = inp.readInt();
-            System.out.println("Comando Ricevuto: " + sceltaClient);
+            String continuaClient = "";
+            do {
+                sceltaClient = inp.readInt();
+                System.out.println("Comando Ricevuto: " + sceltaClient);
 
-            if(sceltaClient == 1){
-                num1 = inp.readInt();
-                num2 = inp.readInt();
-                somma = num1 + num2;
-                System.out.println("Somma: " + num1 + " + " + num2 + " = " + somma);
-                out.writeInt(somma);
-            }
+                if(sceltaClient == 1){
+                    num1 = inp.readInt();
+                    num2 = inp.readInt();
+                    somma = num1 + num2;
+                    System.out.println("Somma: " + num1 + " + " + num2 + " = " + somma);
+                    out.writeInt(somma);
+                }
 
-            if(sceltaClient == 2){
-                num1 = inp.readInt();
-                quadrato = num1 * num1;
-                System.out.println("Quadrato: " + num1 + "^2 = " + quadrato);
-                out.writeInt(quadrato);
-            }
+                if(sceltaClient == 2){
+                    num1 = inp.readInt();
+                    quadrato = num1 * num1;
+                    System.out.println("Quadrato: " + num1 + "^2 = " + quadrato);
+                    out.writeInt(quadrato);
+                }
+                continuaClient = inp.readUTF();
+            }while(!continuaClient.equals("no"));
 
             inp.close();
             out.close();
