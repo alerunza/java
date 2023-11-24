@@ -44,7 +44,6 @@ public class Client {
             do {
                 tentN = input.nextInt();
                 out.writeInt(tentN);
-
                 verificaDalServer = inp.readUTF();
                 System.out.println(verificaDalServer);
                 if(verificaDalServer.equals("Errato")){
@@ -58,7 +57,6 @@ public class Client {
                 }
             }while (!verificaDalServer.equals("Vittoria") && !verificaDalServer.equals("Arreso"));
 
-            input.nextLine();
             client.close();
         } catch (Exception e) {
             throw new RuntimeException(e);

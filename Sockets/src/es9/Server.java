@@ -31,7 +31,7 @@ public class Server {
             do{
                 rispClient = inp.readInt();
                 System.out.println("NUMERO ricevuto dal client: " + rispClient);
-                if(rispClient != randomNumber){
+                if(rispClient != randomNumber && (rispClient != 0)){
                     System.out.println("Il Client ha sbagliato!");
                     out.writeUTF("Errato");
                 }
@@ -43,9 +43,7 @@ public class Server {
                     System.out.println("Il Client si è arreso!");
                     out.writeUTF("Arreso");
                 }
-            }while (rispClient != randomNumber);
-
-            System.out.println("Fuori");
+            }while (rispClient != randomNumber && rispClient != 0);
 
             inp.close();
             out.close();
