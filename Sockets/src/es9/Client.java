@@ -31,7 +31,7 @@ public class Client {
         Scanner input = new Scanner(System.in);
         try {
             String risposta = "", verificaDalServer = "";
-            int tentN = 0;
+            int tentN = 0, tentativi = 0;
             do{
                 System.out.println("Sei pronto per giocare? digita: si");
                 risposta = input.nextLine().toLowerCase();
@@ -43,14 +43,15 @@ public class Client {
             System.out.println("E' iniziato il gioco!\nIndovina un NUMERO tra 1 e 30\nPer arrenderti digita 0");
             do {
                 tentN = input.nextInt();
+                tentativi++;
                 out.writeInt(tentN);
                 verificaDalServer = inp.readUTF();
-                System.out.println(verificaDalServer);
+                System.out.println("Server Status: " + verificaDalServer);
                 if(verificaDalServer.equals("Errato")){
                     System.out.println("Non hai indovinato! Ritenta");
                 }
                 if(verificaDalServer.equals("Vittoria")){
-                    System.out.println("Hai vinto! il NUMERO era: " + tentN);
+                    System.out.println("Hai vinto! con " + tentativi + " tentativi, il NUMERO era: " + tentN);
                 }
                 if(verificaDalServer.equals("Arreso")){
                     System.out.println("Ti sei arreso!");
