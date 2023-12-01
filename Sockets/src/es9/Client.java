@@ -30,35 +30,56 @@ public class Client {
     public void communicate(){
         Scanner input = new Scanner(System.in);
         try {
-            String risposta = "", verificaDalServer = "";
+            String risposta = "", continua = "", verificaDalServer = "";
             int num = 0, tentativi = 0;
-            do{
-                System.out.println("Sei pronto per giocare? digita: si");
-                risposta = input.nextLine().toLowerCase();
-                if(risposta.equals("si")){
-                    out.writeUTF(risposta);
-                } else{
-                    System.out.println("Inserisci un comando valido");
-                }
-            }while(!risposta.equals("si"));
+            boolean flag = false;
 
-            System.out.println("E' iniziato il gioco!\nIndovina un NUMERO tra 1 e 30\nPer arrenderti digita 0");
             do {
-                num = input.nextInt();
-                tentativi++;
-                out.writeInt(num);
-                verificaDalServer = inp.readUTF();
-                System.out.println("Server Status: " + verificaDalServer);
-                if(verificaDalServer.equals("Errato")){
-                    System.out.println("Non hai indovinato! Ritenta");
-                }
-                if(verificaDalServer.equals("Vittoria")){
-                    System.out.println("Hai vinto! con " + tentativi + " tentativi, il NUMERO era: " + num);
-                }
-                if(verificaDalServer.equals("Arreso")){
-                    System.out.println("Ti sei arreso!");
-                }
-            }while (!verificaDalServer.equals("Vittoria") && !verificaDalServer.equals("Arreso"));
+                do{
+                    System.out.println("Sei pronto per giocare? digita: start");
+                    risposta = input.nextLine().toLowerCase();
+                    if(risposta.equals("start")){
+                        out.writeUTF(risposta);
+                    } else{
+                        System.out.println("Inserisci un comando valido");
+                    }
+                }while(!risposta.equals("start"));
+
+                System.out.println("E' iniziato il gioco!\nIndovina un NUMERO tra 1 e 30\nPer arrenderti digita 0");
+                tentativi = 0;
+                do {
+                    num = input.nextInt();
+                    tentativi++;
+                    out.writeInt(num);
+                    verificaDalServer = inp.readUTF();
+                    System.out.println("Server Status: " + verificaDalServer);
+                    if(verificaDalServer.equals("Errato")){
+                        System.out.println("Non hai indovinato! Ritenta");
+                    }
+                    if(verificaDalServer.equals("Vittoria")){
+                        System.out.println("Hai vinto! con " + tentativi + " tentativi, il NUMERO era: " + num);
+                    }
+                    if(verificaDalServer.equals("Arreso")){
+                        System.out.println("Ti sei arreso!");
+                    }
+                }while (!verificaDalServer.equals("Vittoria") && !verificaDalServer.equals("Arreso"));
+
+                input.nextLine();
+                do{
+                    System.out.println("Vuoi continuare a giocare? digita: si/no");
+                    continua = input.nextLine().toLowerCase();
+                    if(continua.equals("si")){
+                        out.writeUTF(continua);
+                    } else if (continua.equals("no")){
+                        out.writeUTF(continua);
+                        flag = true;
+                    } else{
+                        System.out.println("Inserisci un comando valido");
+                    }
+                } while (!continua.equals("si") && !continua.equals("no"));
+            }while(!flag);
+
+            System.out.println("Gioco Terminato");
 
             client.close();
         } catch (Exception e) {

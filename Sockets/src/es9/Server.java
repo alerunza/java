@@ -20,30 +20,40 @@ public class Server {
 
             int randomNumber = 0, rispClient = 0;
             String cmdClient = "";
-            cmdClient = inp.readUTF();
-            System.out.println("COMANDO ricevuto: " + cmdClient);
+            boolean flagClient = false;
 
-            if(cmdClient.equals("si")){
-                randomNumber = (int) (Math.random() * 31);
-                System.out.println("NUMERO generato: " + randomNumber);
-            }
+            do {
+                cmdClient = inp.readUTF();
+                System.out.println("COMANDO ricevuto: " + cmdClient);
 
-            do{
-                rispClient = inp.readInt();
-                System.out.println("NUMERO ricevuto dal client: " + rispClient);
-                if(rispClient != randomNumber && (rispClient != 0)){
-                    System.out.println("Il Client ha sbagliato!");
-                    out.writeUTF("Errato");
+                if(cmdClient.equals("si")){
+                    cmdClient = inp.readUTF();
                 }
-                if(rispClient == randomNumber){
-                    System.out.println("Il Client ha vinto! Il NUMERO era: " + randomNumber);
-                    out.writeUTF("Vittoria");
+                if(cmdClient.equals("no")){
+                    break;
                 }
-                if(rispClient == 0){
-                    System.out.println("Il Client si è arreso!");
-                    out.writeUTF("Arreso");
+                if(cmdClient.equals("start")){
+                    randomNumber = (int) (Math.random() * 31);
+                    System.out.println("NUMERO generato: " + randomNumber);
                 }
-            }while (rispClient != randomNumber && rispClient != 0);
+
+                do{
+                    rispClient = inp.readInt();
+                    System.out.println("NUMERO ricevuto dal client: " + rispClient);
+                    if(rispClient != randomNumber && (rispClient != 0)){
+                        System.out.println("Il Client ha sbagliato!");
+                        out.writeUTF("Errato");
+                    }
+                    if(rispClient == randomNumber){
+                        System.out.println("Il Client ha vinto! Il NUMERO era: " + randomNumber);
+                        out.writeUTF("Vittoria");
+                    }
+                    if(rispClient == 0){
+                        System.out.println("Il Client si è arreso!");
+                        out.writeUTF("Arreso");
+                    }
+                }while (rispClient != randomNumber && rispClient != 0);
+            }while (true);
 
             inp.close();
             out.close();
