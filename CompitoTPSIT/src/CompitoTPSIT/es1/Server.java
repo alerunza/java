@@ -27,18 +27,18 @@ public class Server {
 
                 strCl = inp.readUTF();
                 System.out.println("Stringa ricevuta dal CLIENT: " + strCl);
-                if(sceltaCl == 1){
+                if (sceltaCl == 1) {
                     out.writeUTF(strCl.toUpperCase());
                 }
-                if(sceltaCl == 2){
+                if (sceltaCl == 2) {
                     out.writeUTF(strCl.toLowerCase());
                 }
-            }while(!strCl.equals("stop"));
+            } while (!strCl.equals("stop"));
 
             inp.close();
             out.close();
             client.close();
-        } catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

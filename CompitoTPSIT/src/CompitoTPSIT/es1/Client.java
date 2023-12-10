@@ -25,17 +25,17 @@ public class Client {
         }
     }
 
-    public void communicate(){
+    public void communicate() {
         Scanner input = new Scanner(System.in);
         try {
             String str = "", strElaborata = "";
             int sceltaEl = 0;
             System.out.println("Inserisci più stringhe da elaborare, una volta finito, digita 'stop'");
-            do{
+            do {
                 do {
                     System.out.println("Scegli il tipo di elaborazione: \n1 - Maiuscole\n2 - Minuscole");
                     sceltaEl = input.nextInt();
-                    if(sceltaEl == 1 || sceltaEl == 2){
+                    if (sceltaEl == 1 || sceltaEl == 2) {
                         out.writeInt(sceltaEl);
                     } else {
                         System.out.println("Inserisci un comando valido");

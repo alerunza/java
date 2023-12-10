@@ -25,7 +25,7 @@ public class Server {
 
             System.out.println("Numero di operazioni da svolgere: " + sceltaCl);
 
-            for(int i = 0; i < sceltaCl; i++){
+            for (int i = 0; i < sceltaCl; i++) {
                 num1 = inp.readInt();
                 num2 = inp.readInt();
                 num3 = inp.readInt();
@@ -40,7 +40,7 @@ public class Server {
             inp.close();
             out.close();
             client.close();
-        } catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

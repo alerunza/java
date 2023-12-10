@@ -26,7 +26,7 @@ public class Client {
         }
     }
 
-    public void communicate(){
+    public void communicate() {
         Scanner input = new Scanner(System.in);
         try {
             int sceltaOp = 0, operazioneSvolta = 0;
@@ -34,14 +34,14 @@ public class Client {
             do {
                 System.out.println("Quante operazioni vuoi fare?");
                 sceltaOp = input.nextInt();
-                if(sceltaOp == 0){
+                if (sceltaOp == 0) {
                     System.out.println("Numero non valido");
-                } else{
+                } else {
                     out.writeInt(sceltaOp);
                 }
-            }while (sceltaOp == 0);
+            } while (sceltaOp == 0);
 
-            for (int i = 0; i < sceltaOp; i++){
+            for (int i = 0; i < sceltaOp; i++) {
                 System.out.println("Inserisci 3 numeri");
                 num1 = input.nextInt();
                 num2 = input.nextInt();
